@@ -5,17 +5,17 @@ pipelines:
     group: cd4ml
     stages: 
       - run_experiment:
-          clean_workspace: true
-          jobs:
-            dvc:
-              tabs:
-                report: models/
-              tasks: 
-               - exec: 
-                   command: dvc
-                   arguments:
-                    - "repro eval.dvc"
-              - exec: 
-                   command: dvc
-                   arguments:
-                    - "metrics show"
+        clean_workspace: true
+        jobs:
+          dvc:
+            tabs:
+              report: models/
+            tasks: 
+            - exec: 
+              command: dvc
+              arguments:
+                - "repro eval.dvc"
+            - exec: 
+              command: dvc
+              arguments:
+                - "metrics show"
