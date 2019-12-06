@@ -1,0 +1,21 @@
+format_version: 9
+
+pipelines:
+  dvc:
+    group: cd4ml
+    stages: 
+      - run_experiment:
+          clean_workspace: true
+          jobs:
+            dvc:
+              tabs:
+                report: models/
+              tasks: 
+               - exec: 
+                   command: dvc
+                   arguments:
+                    - "repro eval.dvc"
+              - exec: 
+                   command: dvc
+                   arguments:
+                    - "metrics show"
