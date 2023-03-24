@@ -1,2 +1,2 @@
 dvc
-tensorflow==1.12.1
+tensorflow==2.11.1
